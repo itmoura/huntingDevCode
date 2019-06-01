@@ -1,0 +1,55 @@
+doctype html
+html
+    head
+        //- -----------
+            DESENVOLVIDO POR ÍTALO MOURA, TODOS DIREITOS RESERVADOS
+            italo.moura1201@gmail.com
+            https://www.facebook.com/itmoura12
+        //- ----------
+        title= title
+        link(rel='icon', href='../images/blueCirclesLogo.png', type='image/x-icon')
+        link(rel='shortcut icon', href='../images/blueCirclesLogo.png', type='image/x-icon')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(charset='UTF-8')
+        meta(name='description', content='Capturando QR Code por Santa Rita do Sapucai')
+        meta(name='keywords', content='capturando,cacando,hunting,facebook,developer,DevC,DevCode,HackTown')
+        meta(name='author', content='Ítalo Moura')
+
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet prefetch', href='/bootstrap/css/bootstrap.min.css')
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+
+        script(src='/jquery/jquery-3.3.1.min.js')
+        script(src='/jquery/jquery.tablesorter.min.js')
+        script(src='/bootstrap/js/bootstrap.min.js')
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js")
+
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js')
+
+
+    body
+        a.sidenav-trigger(href='#', data-target='slide-out')
+            i.material-icons menu
+        nav#slide-out.sidenav
+            .topo
+                img(src="../images/topo.png", alt="" width="300" height="30")
+            .background
+                .imagem
+                    img(src='../images/circlesLogo.png')
+                ul
+                    li
+                        a(href="/minhaEquipe") Home
+                    li
+                        a(href="/capturas") Locais Conquistados
+                    li
+                        a(href="/ranking") Ranking
+                    li
+                        a(href="/sobre") Membros
+                    li
+                        a(href="/logout") Sair
+                .sigaNos
+                    a(href="https://www.facebook.com/groups/DevCSantaRitadoSapucai", target="blank")
+                        img(src='../images/facebook.png' width="80")
+
+        block content

@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+body.login {
+  padding: 50px;
+}
+
+body.equipe {
+  padding: 10px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+body.login {background: url(../images/santa-rita.jpg) no-repeat;} /* background-size: 100%; */
+.account-wall {position: relative; margin: 50px auto; width: 100%; max-width: 350px; padding: 10px; text-align: center; background-color: rgba(0,0,0,.5);}
+.account-wall img {border-radius: 80px; margin-bottom: 20px;}
+.account-wall form input {margin-bottom: 10px;}
+
+/* nav {background-color: cornflowerblue; margin-bottom: 15px; padding-top: 10px;}
+nav .container a {color: #ffffff;} */
+
+/* INDEX - Criar equipe */
+.bg_fundo {padding: 50px; padding-bottom: 100%; background: url(../images/fundo.png) no-repeat right; background-size: cover; width: 100%; height: 100%;}
+.bg_fundo h1 {border-bottom: 4px solid #fff; padding: 10px;}
+.bg_fundo .bemVindo {color: #fff;}
+/* #barrafooter {text-align: center; padding-top: 5px; background-color: #fff; height: 40px; width: 100%; position: fixed; bottom: 0; } */
+#barrafooter p {font-size: 18px;}
+#location {display: none;}
+#demo {display: none;}
+
+/* MENU LATERAL */
+.sidenav-trigger {position: relative; color: purple; margin-bottom: 15px;}
+.sidenav-trigger i {font-size: 48px;}
+#slide-out .topo {position: relative; background-color: #428bca;}
+#slide-out .background {width: 100%; height: 100%; background-color:#00B7FF;}
+#slide-out .background .imagem {text-align: center}
+#slide-out .background .imagem img {width: 150px; height: 150px; margin-top: 20px; margin-bottom: 20px;}
+#slide-out .background ul li a {color: #fff; font-size: 22px;}
+#slide-out .background .sigaNos {position: absolute; bottom: 80px; right: 20px;}
+
+/* EQUIPE INDEX */
+.equipe.index h3 {text-align: center; font-size: 30px;}
+.equipe.index .card {padding: 10px;}
+.equipe.index .card h1 {font-size: 18px; margin-top: 15px;}
+.equipe.index .meusDevCode p {font-size: 18px;}
+.equipe.index .btn-floating {position: fixed; bottom: 20px; right: 15px;}
+.equipe.index #modal1 h5 {font-size: 20px;}
+.equipe.index #modal1 p {font-size: 18px;}
+
+
+/* DEVCODE */
+body.devCode h3 {margin-top: 10px;}
+body.devCode p {font-size: 24px;}
+
+
+
+/* BUSCAR EQUIPES */
+.bg_fundo .buscar {text-align: center;}
+.bg_fundo .buscar h2 {font-size: 22px;}
+
+
+.bg_fundo2 {padding: 10px; padding-bottom: 100%; background: url(../images/fundo.png) no-repeat right; background-size: cover; width: 100%; height: 100%;}
+.bg_fundo2 .sobre {padding-left: 15px; padding-right: 15px; color: #fff;} 
+
+.redeSocial {text-align: center; width: 100%;}
+.redeSocial a {margin-right: 10px;}
+
+
+
+
+
+
+
+
+
+/* 
+ CHECKBOX 
+*/
+.radio {
+  padding-left: 20px; }
+  .radio label {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px; }
+    .radio label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 17px;
+      height: 17px;
+      left: 0;
+      margin-left: -20px;
+      border: 1px solid #cccccc;
+      border-radius: 50%;
+      background-color: #fff;
+      -webkit-transition: border 0.15s ease-in-out;
+      -o-transition: border 0.15s ease-in-out;
+      transition: border 0.15s ease-in-out; }
+    .radio label::after {
+      display: inline-block;
+      position: absolute;
+      content: " ";
+      width: 11px;
+      height: 11px;
+      left: 3px;
+      top: 3px;
+      margin-left: -20px;
+      border-radius: 50%;
+      background-color: #555555;
+      -webkit-transform: scale(0, 0);
+      -ms-transform: scale(0, 0);
+      -o-transform: scale(0, 0);
+      transform: scale(0, 0);
+      -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+      -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+      -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+      transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33); }
+  .radio input[type="radio"] {
+    opacity: 0; }
+    .radio input[type="radio"]:focus + label::before {
+      outline: thin dotted;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px; }
+    .radio input[type="radio"]:checked + label::after {
+      -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+      -o-transform: scale(1, 1);
+      transform: scale(1, 1); }
+    .radio input[type="radio"]:disabled + label {
+      opacity: 0.65; }
+      .radio input[type="radio"]:disabled + label::before {
+        cursor: not-allowed; }
+  .radio.radio-inline {
+    margin-top: 0; }
+
+.radio-primary input[type="radio"] + label::after {
+  background-color: #428bca; }
+.radio-primary input[type="radio"]:checked + label::before {
+  border-color: #428bca; }
+.radio-primary input[type="radio"]:checked + label::after {
+  background-color: #428bca; }
+
+.radio-danger input[type="radio"] + label::after {
+  background-color: #d9534f; }
+.radio-danger input[type="radio"]:checked + label::before {
+  border-color: #d9534f; }
+.radio-danger input[type="radio"]:checked + label::after {
+  background-color: #d9534f; }
+
+.radio-info input[type="radio"] + label::after {
+  background-color: #5bc0de; }
+.radio-info input[type="radio"]:checked + label::before {
+  border-color: #5bc0de; }
+.radio-info input[type="radio"]:checked + label::after {
+  background-color: #5bc0de; }
+
+.radio-warning input[type="radio"] + label::after {
+  background-color: #f0ad4e; }
+.radio-warning input[type="radio"]:checked + label::before {
+  border-color: #f0ad4e; }
+.radio-warning input[type="radio"]:checked + label::after {
+  background-color: #f0ad4e; }
+
+.radio-success input[type="radio"] + label::after {
+  background-color: #5cb85c; }
+.radio-success input[type="radio"]:checked + label::before {
+  border-color: #5cb85c; }
+.radio-success input[type="radio"]:checked + label::after {
+  background-color: #5cb85c; }
+
+
+

@@ -1,0 +1,48 @@
+doctype html
+html
+	head
+		//- -----------
+		//-	TODOS OS DIREITOS RESERVADO A ÍTALO MOURA
+		//-	Telefone: +55 (35) 99750-0604
+		//-	E-mail: italo.moura1201@gmail.com
+		//-	facebook.com/itmoura12
+		//-	Instagram: @it_moura
+		//-	GITHUB: itmoura
+		//- ----------
+		title= title
+		link(rel='icon', href='/images/blueCirclesLogo.png', type='image/x-icon')
+		link(rel='shortcut icon', href='/images/blueCirclesLogo.png', type='image/x-icon')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(charset='UTF-8')
+		meta(name='description', content='Capturando QR Code por Santa Rita do Sapucai')
+		meta(name='keywords', content='capturando,cacando,hunting,facebook,developer,DevC,DevCode,HackTown')
+		meta(name='author', content='Ítalo Moura')
+		
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet prefetch', href='/bootstrap/css/bootstrap.min.css')
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		
+		
+		script(src='/jquery/jquery-3.3.1.min.js')
+		//- script(src='/jquery/jquery.tablesorter.min.js')
+		script(src='/bootstrap/js/bootstrap.min.js')
+		//- script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js")
+	body
+		block content
+
+	script.
+		var x = document.getElementById("location");
+		$(document).ready(function(){
+			getLocation();
+		});
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+		function showPosition(position) {
+			x.innerHTML = "Latitude: " + position.coords.latitude +
+			"<br>Longitude: " + position.coords.longitude;
+		}

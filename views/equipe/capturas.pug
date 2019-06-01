@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    body.equipe.index
+        .container
+            h3 Meus locais
+            -if(user.local_id != null)
+                -var quebra_id = string(user.local_id).splitLeft(",");
+                each lista, i in locais
+                    -var tamanho = quebra_id.length;
+                    -for(var j = 0; j < tamanho; j++){
+                        -if(quebra_id[j] == lista._id)
+                            -var descricao = string(lista.descricao).left(60).s;
+                            .col.s12 
+                                a.card.center-align(href="vis/"+lista._id, style="color: #000; text-decoration: none;")
+                                    img(src="../images/locais/"+lista.filename, alt="" style="width: 100%; height: 150px;")
+                                    h1 #{lista.titulo}
+                                    p #{descricao}
+                    -}
+
+
+    script.
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.modal').modal();
+        });

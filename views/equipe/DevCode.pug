@@ -1,0 +1,70 @@
+extends layout
+
+block content
+    body.equipe.devCode(style="margin-bottom: 35px;")
+        .bgTopper(style="background: url(../../images/locais/"+local.filename+") no-repeat; background-size: 100%; width: 100%; height: 250px;")
+        .container
+            p Competição encerrada, por favor verificar a 
+                a(href="/") home.
+            h3 #{local.titulo}
+            p #{local.descricao}
+            span(style="font-size: 15px;") Esse local vale #{local.pontos} pontos
+            br
+            br
+            span *Só é possivel pontuar uma vez por local
+        //- input#lat(value=local.latitude, type="hidden")
+        //- input#lon(value=local.longitude, type="hidden")
+        //- form(action="/pontuar", method="POST", style="margin-top: 35px; margin-right: 20px;")
+        //-     input(type="hidden", name="local_id" value=local._id)
+        //-     input(type="hidden", name="pontos" value=local.pontos)
+        //-     button.btn.btn-lg.btn-success.right#pontuar(type='submit', disabled) Pontuar
+        //- br
+        //- br
+        //- br
+
+    //- script.
+    //-     var latitude = $("#lat").val();
+    //-     var longitude = $("#lon").val();
+    //-     $(document).ready(function(){
+    //-         getLocation();
+    //-     });
+    //-     function getLocation() {
+    //-         if (navigator.geolocation) {
+    //-             navigator.geolocation.getCurrentPosition(showPosition);
+    //-         }
+    //-     }
+    //-     function showPosition(position) {
+    //-         var lat = (position.coords.latitude * Math.PI) / 180;
+    //-         var lon = (position.coords.longitude * Math.PI) / 180;
+    //-         comparaPosition(lat,lon);
+    //-     }
+    //-     function comparaPosition(lat,lon){
+    //-         var lat = parseFloat(lat.toFixed(4));
+    //-         var lon = parseFloat(lon.toFixed(4));
+    //-         var lat2 = (latitude * Math.PI) / 180;
+    //-         var lon2 = (longitude * Math.PI) / 180;
+    //-         var lat2 = parseFloat(lat2.toFixed(4));
+    //-         var lon2 = parseFloat(lon2.toFixed(4));
+    //-         if(lat == lat2 && lon == lon2){
+    //-             document.getElementById('pontuar').removeAttribute("disabled");
+    //-         } else { 
+    //-             alert("Voce tem que estar presente no local para poder pontuar");    
+    //-         }
+    //-     }
+    //-     document.addEventListener('DOMContentLoaded', function() {
+    //-         var elems = document.querySelectorAll('.sidenav');
+    //-         var instances = M.Sidenav.init(elems, options);
+
+    //-         var elems = document.querySelectorAll('.modal');
+    //-         var instances = M.Modal.init(elems, options);
+    //-     });
+
+    //-     // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+    //-     // var collapsibleElem = document.querySelector('.collapsible');
+    //-     // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+    //-     // Or with jQuery
+
+    //-     $(document).ready(function(){
+    //-         $('.sidenav').sidenav();
+    //-     });

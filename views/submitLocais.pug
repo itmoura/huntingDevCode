@@ -1,0 +1,17 @@
+extend layout
+
+block content
+    form.form-group(action='/submit/thebatmanlocao', method='post', enctype="multipart/form-data")
+        input.form-control(type="text", name="titulo", placeholder="Titulo")
+        br
+        textarea(name="descricao", cols="30", rows="5")
+        br
+        input.form-control(type="text", name="pontos", placeholder="Pontos")
+        br
+        input.form-control(type="text", name="latitude", placeholder="Latitude")
+        br
+        input.form-control(type="text", name="longitude", placeholder="Longitude")
+        br
+        input.form-control(type='file', name='arquivo', required)
+        br
+        button.btn.btn-success(type='submit') Enviar

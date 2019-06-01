@@ -1,0 +1,55 @@
+extends layout
+
+block content
+	body.bg_fundo
+		div(style="text-align: center; margin-top: 20px;").bemVindo
+			img(src="images/circlesLogo.png", alt="" width="80" style="margin-bottom: 20px;")
+			h1 Bem Vindo
+			p(style="font-size: 22px;") #{user.nome}, já possuí uma equipe cadastrada?
+		.container
+			.row
+				.col-6
+					a(href="/encontrarEquipe", class="btn btn-lg btn-primary") Sim
+				.col-6
+					button(type='button', data-toggle='modal', data-target='#criarEquipe', class="btn btn-lg") Não
+		br
+		p#location
+	div#barrafooter.align-center
+		//- p © DevC - 2018
+
+		// Modal
+		#criarEquipe.modal.fade(tabindex='-1', role='dialog', aria-labelledby='criarEquipeTitle', aria-hidden='true')
+			.modal-dialog.modal-dialog-centered(role='document')
+				.modal-content
+					form(class='form-signin', action='/createEquipe', method='POST')
+						.modal-header
+							h5#exampleModalLongTitle.modal-title Crie sua equipe
+							button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×						
+						.modal-body
+							p Já possui membros para equipe? Essa equipe pode conter no máximo 3 pessoas. 
+							p Se não possui, não se preocupe é possível deixar sua equipe em aberto para outros entrarem.
+							br
+							label(for="equipe") Nome da Equipe
+							input(type='text', name='equipe' class='form-control',required, autofocus)
+							br
+							.radio.radio-info.radio-inline
+								input#inlineRadio1(type='radio', value='option1', name='radioInline', checked='', onchange="desabilitar()")
+								label(for='inlineRadio1') Deixar equipe aberta
+							.radio.radio-danger.radio-inline
+								input#inlineRadio2(type='radio', value='option2', name='radioInline' onchange="habilitar()")
+								label(for='inlineRadio2') Já tenho uma equipe formada
+							input(type='text', name='senha' id="senha" class='form-control', disabled, placeholder="Senha")
+							span.clearfix
+							br
+						.modal-footer
+							button.btn.btn-secondary(type='button', data-dismiss='modal') Cancelar
+							button.btn.btn-info(type='submit') Criar
+	script.
+		function habilitar(){
+			document.getElementById('senha').removeAttribute("disabled");
+		}
+		function desabilitar(){
+			document.getElementById('senha').value=''; //Evita que o usuário defina um texto e desabilite o campo após realiza-lo
+			document.getElementById('senha').setAttribute("disabled", "disabled");
+		}

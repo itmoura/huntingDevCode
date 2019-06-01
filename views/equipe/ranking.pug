@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    body.equipe.index
+        .container
+            h3 Ranking
+            table
+                thead
+                    tr
+                    th Equipe
+                    th Pontos
+                tbody
+                    each lista, i in ranking
+                        -var equipe = string(lista.equipe).left(20).s;
+                        tr
+                        td #{equipe}
+                        td #{lista.pontos}
+
+
+
+    script.
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.modal').modal();
+        });

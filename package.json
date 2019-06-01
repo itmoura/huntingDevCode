@@ -1,0 +1,32 @@
+{
+  "name": "huntingcode",
+  "version": "0.5.6",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Ítalo Moura",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "child_process": "^1.0.2",
+    "connect-ensure-login": "*",
+    "cookie-parser": "~1.4.3",
+    "cookie-session": "*",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-load": "*",
+    "express-session": "*",
+    "http-errors": "~1.6.2",
+    "moment": "*",
+    "mongodb": "^3.1.10",
+    "mongoose": "*",
+    "morgan": "~1.9.0",
+    "multer": "*",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0",
+    "pug": "2.0.0-beta11",
+    "string": "*"
+  }
+}

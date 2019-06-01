@@ -1,0 +1,54 @@
+extends layout
+
+
+block content
+    body.login
+        div.container
+            div.row
+                div.account-wall
+                    div
+                        br
+                        br
+                        -if(cpf_search && email_search){
+                            p(style="color: #fff") CPF já cadastrado
+                            p(style="color: #fff") E-mail já cadastrado
+                        -} else if(email_search){
+                            p(style="color: #fff") E-mail já cadastrado
+                        - } else if(cpf_search){
+                            p(style="color: #fff") CPF já cadastrado
+                        - }
+                        form(class='form-signin', action='/signup', method='POST')
+                            .form-group
+                                input(type='text', name='nome' class='form-control', placeholder='Nome*', required, autofocus)
+                                input(type='email', name='email' class='form-control', placeholder='Email*', required)
+                                input(type="text" name='celular' class='form-control celular', placeholder='Telefone') 
+                                input(type="text" name='cpf' id="input", class='form-control cpf', placeholder='CPF*', required) 
+                                input(type='password', name='password' class='form-control', placeholder='Senha*', required)
+                                button#submitSignup(class='btn btn-lg btn-info btn-block', type='submit' disabled) Criar
+                                span.clearfix
+                            br
+                        a(href='/login', class='text-center new-account') Já possui conta
+                        #message
+                        if message
+                            h1.text-center.error-message #{message} 
+    script(src='/javascripts/jquery.mask.min.js')
+    script.
+        function CPF(){"user_strict";function r(r){for(var t=null,n=0;9>n;++n)t+=r.toString().charAt(n)*(10-n);var i=t%11;return i=2>i?0:11-i}function t(r){for(var t=null,n=0;10>n;++n)t+=r.toString().charAt(n)*(11-n);var i=t%11;return i=2>i?0:11-i}var n="CPF Inválido",i="CPF Válido";this.gera=function(){for(var n="",i=0;9>i;++i)n+=Math.floor(9*Math.random())+"";var o=r(n),a=n+"-"+o+t(n+""+o);return a},this.valida=function(o){for(var a=o.replace(/\D/g,""),u=a.substring(0,9),f=a.substring(9,11),v=0;10>v;v++)if(""+u+f==""+v+v+v+v+v+v+v+v+v+v+v)return n;var c=r(u),e=t(u+""+c);return f.toString()===c.toString()+e.toString()?i:n}}
+            var CPF = new CPF();
+            $('.cpf').mask('000.000.000-00', {reverse: true});
+            $("#input").blur(function(){
+                if(CPF.valida($(this).val()) === "CPF Inválido")
+                    document.getElementById('submitSignup').setAttribute("disabled", "disabled");
+                else 
+                    document.getElementById('submitSignup').removeAttribute("disabled");
+            });
+
+            var SPMaskBehavior = function (val) {
+                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            },
+            spOptions = {
+                onKeyPress: function(val, e, field, options) {
+                    field.mask(SPMaskBehavior.apply({}, arguments), options);
+                }
+            };
+            $('.celular').mask(SPMaskBehavior, spOptions);

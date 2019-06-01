@@ -1,0 +1,23 @@
+extends layout
+
+
+block content
+    body.login
+        div.container
+            div.row
+                div.account-wall
+                    div
+                        img(class='profile-img', src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120')
+                        //- h1.text-center.login-title Login
+                        form(class='form-signin', action='/login', method='POST')
+                            .form-group
+                                input(type='email', name='username' class='form-control', placeholder='Email',required, autofocus)
+                                input(type='password', name='password' class='form-control', placeholder='Senha', required)
+                                button(class='btn btn-lg btn-info btn-block', type='submit') Acessar
+                                span.clearfix
+                            br
+                        a(href='/signup', class='text-center new-account btn btn-lg btn-dark btn-block') Criar nova conta
+
+                        #message
+                        if message
+                            h1.text-center.error-message #{message} 

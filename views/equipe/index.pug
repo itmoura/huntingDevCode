@@ -1,0 +1,91 @@
+extends layout
+
+block content
+    body.equipe.index
+        .container
+            if(membros.pontos > 0)
+                h2 Parabéns você ganhou!
+                p(style="font-size: 18px;") Vá com a sua equipe e retire seu brinde(camiseta + button + copo + adesivo) no Espaço Developer Circles.
+                p(style="font-size: 18px;") Você tem até as 18:10 para retirar seu brinde!
+            h3 Membros
+            -var quebra_nome = string(membros.nome_membros).parseCSV(",");
+            -var quebra_id = string(membros.id_membros).parseCSV(",");   
+            each lista, i in pontuacao
+                .col.s12 
+                    -var j = 0;
+                    .card.center-align
+                        -while(j < 3){
+                            -if(quebra_id[j] == lista._id){
+                                h1 #{lista.nome}
+                                p #{lista.email}
+                                p #{lista.celular}
+                                p Fez #{lista.pontos} DevCode
+                            -} 
+                            -j++;
+                        -}
+            h3 Pontos da Equipe
+            .meusDevCode.center-align
+                if(membros.pontos == null)
+                    h5 0 DevCode
+                else
+                    h5 #{membros.pontos} DevCode
+            //- .col.s12.m7
+            //-     .card
+            //-         .card-image
+            //-             img(src='images/santa-rita.jpg')
+            //-             span.card-title Card Title
+            //-         .card-content
+            //-         p aaaaaaa
+            //-     .card-action
+            //-         a(href='#') This is a link
+        p#demo
+        a.btn-floating.btn-large.waves-effect.waves-light.blue.lighten-1(href='https://drive.google.com/open?id=1Soix5CWT1hifwlo6e_2TavxNvGsDL_Fb' target="blank")
+            i.material-icons help_outline
+        //- Modal Structure
+        //- #modal1.modal
+        //-     .modal-content
+        //-         h5 Fique esperto com as dicas
+        //-         p As dicas são liberados no grupo Facebook, solicite para entrar e resolva um problema.
+        //-         p Essa solução é a resposta de onde está o DevCode.
+        //-         br
+        //-         a(href="../devc.pdf") Baixe o PDF com dicas
+        //-         //- textarea(name="resposta", cols="30", rows="10")
+        //-         //- span Insira a resposta contendo apenas letras minusculas.
+        //-     .modal-footer
+        //-         a.modal-close.waves-effect.waves-green.btn-flat(href="https://www.facebook.com/groups/DevCSantaRitadoSapucai", target="blank") Nosso Grupo
+
+
+    script.
+        //- var x = document.getElementById("demo");
+        //- $(document).ready(function(){
+        //-     getLocation();
+        //- });
+        //- function getLocation() {
+        //-     if (navigator.geolocation) {
+        //-         navigator.geolocation.getCurrentPosition(showPosition);
+        //-     } else {
+        //-         x.innerHTML = "Geolocation is not supported by this browser.";
+        //-     }
+        //- }
+        //- function showPosition(position) {
+        //-     x.innerHTML = "Latitude: " + position.coords.latitude +
+        //-     "<br>Longitude: " + position.coords.longitude;
+        //- }
+        //- document.addEventListener('DOMContentLoaded', function() {
+        //-     var elems = document.querySelectorAll('.sidenav');
+        //-     var instances = M.Sidenav.init(elems, options);
+
+        //-     var elems = document.querySelectorAll('.modal');
+        //-     var instances = M.Modal.init(elems, options);
+        //- });
+
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.modal').modal();
+        });

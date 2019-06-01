@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    body.bg_fundo
+        div(style="text-align: center; margin-top: 20px;")
+            h1 Bem Vindo
+            p(style="font-size: 24px;") #{user.nome}, selecione sua equipe
+        .container.buscar
+            each lista, i in equipes
+                a.col.s12(data-toggle='modal', data-target='#entrarEquipe'+lista._id)
+                    .card.center-align
+                        h2 #{lista.equipe}
+                        p Craido por: #{lista.nome_criador}
+                br
+                // Modal
+                .modal.fade(id='entrarEquipe'+lista._id, tabindex='-1', role='dialog', aria-labelledby='criarEquipeTitle', aria-hidden='true')
+                    .modal-dialog.modal-dialog-centered(role='document')
+                        .modal-content
+                            form(class='form-signin', action='/entrarEquipe', method='POST')
+                                .modal-header
+                                    h5#exampleModalLongTitle.modal-title Crie sua equipe
+                                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                    span(aria-hidden='true') ×						
+                                .modal-body
+                                    input(type="hidden", value=lista._id, name="id_equipe")
+                                    if(lista.senha == null)
+                                        p Essa Equipe está livre, você pode entrar. Quando estiver dentro da equipe será disponibilizado um meio de contato com o criador 
+                                    else
+                                        label(for="senha") Senha
+                                        input(type='text', name='senha' class='form-control',required)
+                                    span.clearfix
+                                    br
+                                .modal-footer
+                                    button.btn.btn-secondary(type='button', data-dismiss='modal') Cancelar
+                                    button.btn.btn-info(type='submit') Entrar
+        br
+        p#location
+    div#barrafooter
